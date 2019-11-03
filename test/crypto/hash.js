@@ -1,8 +1,8 @@
 'use strict';
 
 require('chai').should();
-var digibyte = require('../..');
-var Hash = digibyte.crypto.Hash;
+var auroracoin = require('../..');
+var Hash = auroracoin.crypto.Hash;
 
 describe('Hash', function() {
   var buf = new Buffer([0, 1, 2, 3, 253, 254, 255]);

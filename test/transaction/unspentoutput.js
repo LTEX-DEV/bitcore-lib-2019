@@ -5,8 +5,8 @@ var chai = require('chai');
 var should = chai.should();
 var expect = chai.expect;
 
-var digibyte = require('../..');
-var UnspentOutput = digibyte.Transaction.UnspentOutput;
+var auroracoin = require('../..');
+var UnspentOutput = auroracoin.Transaction.UnspentOutput;
 
 describe('UnspentOutput', function() {
 

@@ -1,8 +1,8 @@
 'use strict';
 
 var should = require('chai').should();
-var digibyte = require('../..');
-var BN = digibyte.crypto.BN;
+var auroracoin = require('../..');
+var BN = auroracoin.crypto.BN;
 
 describe('BN', function() {
   it('should create a bn', function() {

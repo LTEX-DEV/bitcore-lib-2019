@@ -4,8 +4,8 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 
-var digibyte = require('../..');
-var JSUtil = digibyte.util.js;
+var auroracoin = require('../..');
+var JSUtil = auroracoin.util.js;
 
 describe('js utils', function() {
 

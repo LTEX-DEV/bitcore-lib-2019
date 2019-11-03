@@ -4,13 +4,13 @@ var should = require('chai').should();
 var expect = require('chai').expect;
 var _ = require('lodash');
 
-var digibyte = require('../../..');
-var errors = digibyte.errors;
-var PrivateKey = digibyte.PrivateKey;
-var Address = digibyte.Address;
-var Script = digibyte.Script;
-var Networks = digibyte.Networks;
-var Input = digibyte.Transaction.Input;
+var auroracoin = require('../../..');
+var errors = auroracoin.errors;
+var PrivateKey = auroracoin.PrivateKey;
+var Address = auroracoin.Address;
+var Script = auroracoin.Script;
+var Networks = auroracoin.Networks;
+var Input = auroracoin.Transaction.Input;
 
 describe('Transaction.Input', function() {
 

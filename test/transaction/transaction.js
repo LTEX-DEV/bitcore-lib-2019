@@ -7,18 +7,18 @@ var expect = require('chai').expect;
 var _ = require('lodash');
 var sinon = require('sinon');
 
-var digibyte = require('../..');
-var BN = digibyte.crypto.BN;
-var Transaction = digibyte.Transaction;
-var Input = digibyte.Transaction.Input;
-var Output = digibyte.Transaction.Output;
-var PrivateKey = digibyte.PrivateKey;
-var Script = digibyte.Script;
-var Interpreter = digibyte.Script.Interpreter;
-var Address = digibyte.Address;
-var Networks = digibyte.Networks;
-var Opcode = digibyte.Opcode;
-var errors = digibyte.errors;
+var auroracoin = require('../..');
+var BN = auroracoin.crypto.BN;
+var Transaction = auroracoin.Transaction;
+var Input = auroracoin.Transaction.Input;
+var Output = auroracoin.Transaction.Output;
+var PrivateKey = auroracoin.PrivateKey;
+var Script = auroracoin.Script;
+var Interpreter = auroracoin.Script.Interpreter;
+var Address = auroracoin.Address;
+var Networks = auroracoin.Networks;
+var Opcode = auroracoin.Opcode;
+var errors = auroracoin.errors;
 
 var transactionVector = require('../data/tx_creation');
 
@@ -117,7 +117,7 @@ describe('Transaction', function() {
   });
 
   it('fromObject with pay-to-public-key previous outputs', function() {
-    var tx = digibyte.Transaction({
+    var tx = auroracoin.Transaction({
       hash: '132856bf03d6415562a556437d22ac63c37a4595fd986c796eb8e02dc031aa25',
       version: 1,
       inputs: [
@@ -145,7 +145,7 @@ describe('Transaction', function() {
       ],
       nLockTime: 139
     });
-    tx.inputs[0].should.be.instanceof(digibyte.Transaction.Input.PublicKey);
+    tx.inputs[0].should.be.instanceof(auroracoin.Transaction.Input.PublicKey);
     tx.inputs[0].output.satoshis.should.equal(5000000000);
     tx.inputs[0].output.script.toHex().should.equal('2103b1c65d65f1ff3fe145a4ede692460ae0606671d04e8449e99dd11c66ab55a7feac');
   });
@@ -591,7 +591,7 @@ describe('Transaction', function() {
             .change(changeAddress);
         }, 'disableIsFullySigned', errors.Transaction.MissingSignatures
       ));
-      it('can skip the check that avoids spending more digibytes than the inputs for a transaction', buildSkipTest(
+      it('can skip the check that avoids spending more auroracoins than the inputs for a transaction', buildSkipTest(
         function(transaction) {
           return transaction
             .to(toAddress, 10000000000000)
@@ -769,7 +769,7 @@ describe('Transaction', function() {
         outputIndex: 0,
         script: new Script()
       }), outputScriptString, 10000);
-      transaction.inputs[0].output.script.should.be.instanceof(digibyte.Script);
+      transaction.inputs[0].output.script.should.be.instanceof(auroracoin.Script);
       transaction.inputs[0].output.script.toString().should.equal(outputScriptString);
     });
   });

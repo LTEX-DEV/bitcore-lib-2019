@@ -4,9 +4,9 @@ var buffer = require('buffer');
 
 var chai = require('chai');
 var should = chai.should();
-var digibyte = require('../../');
-var Script = digibyte.Script;
-var Transaction = digibyte.Transaction;
+var auroracoin = require('../../');
+var Script = auroracoin.Script;
+var Transaction = auroracoin.Transaction;
 var sighash = Transaction.sighash;
 
 var vectors_sighash = require('../data/sighash.json');
@@ -18,7 +18,7 @@ describe('sighash', function() {
       // First element is just a row describing the next ones
       return;
     }
-    it('test vector from digibyted #' + i + ' (' + vector[4].substring(0, 16) + ')', function() {
+    it('test vector from auroracoind #' + i + ' (' + vector[4].substring(0, 16) + ')', function() {
       var txbuf = new buffer.Buffer(vector[0], 'hex');
       var scriptbuf = new buffer.Buffer(vector[1], 'hex');
       var subscript = Script(scriptbuf);

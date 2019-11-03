@@ -6,12 +6,12 @@ var should = require('chai').should();
 var expect = require('chai').expect;
 var _ = require('lodash');
 
-var digibyte = require('../..');
-var Transaction = digibyte.Transaction;
-var TransactionSignature = digibyte.Transaction.Signature;
-var Script = digibyte.Script;
-var PrivateKey = digibyte.PrivateKey;
-var errors = digibyte.errors;
+var auroracoin = require('../..');
+var Transaction = auroracoin.Transaction;
+var TransactionSignature = auroracoin.Transaction.Signature;
+var Script = auroracoin.Script;
+var PrivateKey = auroracoin.PrivateKey;
+var errors = auroracoin.errors;
 
 describe('TransactionSignature', function() {
 

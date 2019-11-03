@@ -1,73 +1,73 @@
 'use strict';
 
-var digibyte = module.exports;
+var auroracoin = module.exports;
 
 // module information
-digibyte.version = 'v' + require('./package.json').version;
-digibyte.versionGuard = function(version) {
+auroracoin.version = 'v' + require('./package.json').version;
+auroracoin.versionGuard = function(version) {
   if (version !== undefined) {
-    var message = 'More than one instance of digibyte found. ' +
-      'Please make sure to require digibyte and check that submodules do' +
-      ' not also include their own digibyte dependency.';
+    var message = 'More than one instance of auroracoin found. ' +
+      'Please make sure to require auroracoin and check that submodules do' +
+      ' not also include their own auroracoin dependency.';
     throw new Error(message);
   }
 };
-digibyte.versionGuard(global._digibyte);
-global._digibyte = digibyte.version;
+auroracoin.versionGuard(global._auroracoin);
+global._auroracoin = auroracoin.version;
 
 // crypto
-digibyte.crypto = {};
-digibyte.crypto.BN = require('./lib/crypto/bn');
-digibyte.crypto.ECDSA = require('./lib/crypto/ecdsa');
-digibyte.crypto.Hash = require('./lib/crypto/hash');
-digibyte.crypto.Random = require('./lib/crypto/random');
-digibyte.crypto.Point = require('./lib/crypto/point');
-digibyte.crypto.Signature = require('./lib/crypto/signature');
+auroracoin.crypto = {};
+auroracoin.crypto.BN = require('./lib/crypto/bn');
+auroracoin.crypto.ECDSA = require('./lib/crypto/ecdsa');
+auroracoin.crypto.Hash = require('./lib/crypto/hash');
+auroracoin.crypto.Random = require('./lib/crypto/random');
+auroracoin.crypto.Point = require('./lib/crypto/point');
+auroracoin.crypto.Signature = require('./lib/crypto/signature');
 
 // encoding
-digibyte.encoding = {};
-digibyte.encoding.bech32 = require('./lib/encoding/bech32');
-digibyte.encoding.bech32Check = require('./lib/encoding/bech32check');
-digibyte.encoding.Base58 = require('./lib/encoding/base58');
-digibyte.encoding.Base58Check = require('./lib/encoding/base58check');
-digibyte.encoding.BufferReader = require('./lib/encoding/bufferreader');
-digibyte.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
-digibyte.encoding.Varint = require('./lib/encoding/varint');
+auroracoin.encoding = {};
+auroracoin.encoding.bech32 = require('./lib/encoding/bech32');
+auroracoin.encoding.bech32Check = require('./lib/encoding/bech32check');
+auroracoin.encoding.Base58 = require('./lib/encoding/base58');
+auroracoin.encoding.Base58Check = require('./lib/encoding/base58check');
+auroracoin.encoding.BufferReader = require('./lib/encoding/bufferreader');
+auroracoin.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
+auroracoin.encoding.Varint = require('./lib/encoding/varint');
 
 // utilities
-digibyte.util = {};
-digibyte.util.assets = require('./lib/util/assets');
-digibyte.util.buffer = require('./lib/util/buffer');
-digibyte.util.js = require('./lib/util/js');
-digibyte.util.preconditions = require('./lib/util/preconditions');
+auroracoin.util = {};
+auroracoin.util.assets = require('./lib/util/assets');
+auroracoin.util.buffer = require('./lib/util/buffer');
+auroracoin.util.js = require('./lib/util/js');
+auroracoin.util.preconditions = require('./lib/util/preconditions');
 
 // errors thrown by the library
-digibyte.errors = require('./lib/errors');
+auroracoin.errors = require('./lib/errors');
 
-// main digibyte library
-digibyte.Asset = require('./lib/asset');
-digibyte.Address = require('./lib/address');
-digibyte.Block = require('./lib/block');
-digibyte.MerkleBlock = require('./lib/block/merkleblock');
-digibyte.BlockHeader = require('./lib/block/blockheader');
-digibyte.HDPrivateKey = require('./lib/hdprivatekey.js');
-digibyte.HDPublicKey = require('./lib/hdpublickey.js');
-digibyte.Networks = require('./lib/networks');
-digibyte.Opcode = require('./lib/opcode');
-digibyte.PrivateKey = require('./lib/privatekey');
-digibyte.PublicKey = require('./lib/publickey');
-digibyte.Script = require('./lib/script');
-digibyte.Transaction = require('./lib/transaction');
-digibyte.URI = require('./lib/uri');
-digibyte.Unit = require('./lib/unit');
+// main auroracoin library
+auroracoin.Asset = require('./lib/asset');
+auroracoin.Address = require('./lib/address');
+auroracoin.Block = require('./lib/block');
+auroracoin.MerkleBlock = require('./lib/block/merkleblock');
+auroracoin.BlockHeader = require('./lib/block/blockheader');
+auroracoin.HDPrivateKey = require('./lib/hdprivatekey.js');
+auroracoin.HDPublicKey = require('./lib/hdpublickey.js');
+auroracoin.Networks = require('./lib/networks');
+auroracoin.Opcode = require('./lib/opcode');
+auroracoin.PrivateKey = require('./lib/privatekey');
+auroracoin.PublicKey = require('./lib/publickey');
+auroracoin.Script = require('./lib/script');
+auroracoin.Transaction = require('./lib/transaction');
+auroracoin.URI = require('./lib/uri');
+auroracoin.Unit = require('./lib/unit');
 
 // dependencies, subject to change
-digibyte.deps = {};
-digibyte.deps.bnjs = require('bn.js');
-digibyte.deps.bs58 = require('bs58');
-digibyte.deps.Buffer = Buffer;
-digibyte.deps.elliptic = require('elliptic');
-digibyte.deps._ = require('lodash');
+auroracoin.deps = {};
+auroracoin.deps.bnjs = require('bn.js');
+auroracoin.deps.bs58 = require('bs58');
+auroracoin.deps.Buffer = Buffer;
+auroracoin.deps.elliptic = require('elliptic');
+auroracoin.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking
-digibyte.Transaction.sighash = require('./lib/transaction/sighash');
+auroracoin.Transaction.sighash = require('./lib/transaction/sighash');

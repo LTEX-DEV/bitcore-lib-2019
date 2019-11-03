@@ -1639,9 +1639,9 @@ Asset.prototype.encodeDigiAssetScheme = function(tx) {
     });
   }
   if (this.flags && this.flags.splitChange && lastOutputValue >= 2 * Transaction.DUST_AMOUNT && coloredAmount > 0) {
-    var digibyteChange = lastOutputValue - Transaction.DUST_AMOUNT;
+    var auroracoinChange = lastOutputValue - Transaction.DUST_AMOUNT;
     lastOutputValue = Transaction.DUST_AMOUNT;
-    tx.addOutput(metadata.issueAddress, digibyteChange);
+    tx.addOutput(metadata.issueAddress, auroracoinChange);
   }
   if (coloredAmount > 0) {
     // there's a colored change output
@@ -5165,22 +5165,22 @@ var traverseRoot = function(parent, errorsDefinition) {
 };
 
 
-var digibyte = {};
-digibyte.Error = function() {
+var auroracoin = {};
+auroracoin.Error = function() {
   this.message = 'Internal error';
   this.stack = this.message + '\n' + (new Error()).stack;
 };
-digibyte.Error.prototype = Object.create(Error.prototype);
-digibyte.Error.prototype.name = 'digibyte.Error';
+auroracoin.Error.prototype = Object.create(Error.prototype);
+auroracoin.Error.prototype.name = 'auroracoin.Error';
 
 
 var data = require('./spec');
-traverseRoot(digibyte.Error, data);
+traverseRoot(auroracoin.Error, data);
 
-module.exports = digibyte.Error;
+module.exports = auroracoin.Error;
 
 module.exports.extend = function(spec) {
-  return traverseNode(digibyte.Error, spec);
+  return traverseNode(auroracoin.Error, spec);
 };
 
 },{"./spec":27,"lodash":174}],27:[function(require,module,exports){
@@ -5784,7 +5784,7 @@ HDPrivateKey.fromSeed = function(hexa, network, secret) {
     throw new hdErrors.InvalidEntropyArgument.TooMuchEntropy(hexa);
   }
   if (!secret) {
-    secret = 'DigiByte seed';
+    secret = 'Auroracoin seed';
   }
   var hash = Hash.sha512hmac(hexa, new buffer.Buffer(secret));
 
@@ -6031,9 +6031,9 @@ var Network = require('./networks');
 var Point = require('./crypto/point');
 var PublicKey = require('./publickey');
 
-var digibyteErrors = require('./errors');
-var errors = digibyteErrors;
-var hdErrors = digibyteErrors.HDPublicKey;
+var auroracoinErrors = require('./errors');
+var errors = auroracoinErrors;
+var hdErrors = auroracoinErrors.HDPublicKey;
 var assert = require('assert');
 
 var JSUtil = require('./util/js');
@@ -6682,8 +6682,8 @@ addNetwork({
   networkMagic: 0xfac3b6da,
   port: 12024,
   dnsSeeds: [
-    'seed.digibyte.co',
-    'seed.digibyte.io',
+    'seed.auroracoin.co',
+    'seed.auroracoin.io',
     'digiexplorer.info'
   ]
 });
@@ -6717,7 +6717,7 @@ var TESTNET = {
   PORT: 12026,
   NETWORK_MAGIC: BufferUtil.integerAsBuffer(0xfdc8bddd),
   DNS_SEEDS: [
-    'testnet-1.us.digibyteservers.io'
+    'testnet-1.us.auroracoinservers.io'
   ]
 };
 
@@ -14252,7 +14252,7 @@ URI.isValid = function(arg, knownParams) {
 URI.parse = function(uri) {
   var info = URL.parse(uri, true);
 
-  if (info.protocol !== 'digibyte:') {
+  if (info.protocol !== 'auroracoin:') {
     throw new TypeError('Invalid bitcoin URI');
   }
 
@@ -14347,7 +14347,7 @@ URI.prototype.toString = function() {
   _.extend(query, this.extras);
 
   return URL.format({
-    protocol: 'digibyte:',
+    protocol: 'auroracoin:',
     host: this.address,
     query: query
   });
@@ -31573,7 +31573,7 @@ module.exports={
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-6.4.0.tgz",
   "_shasum": "cac9af8762c85836187003c8dfe193e5e2eae5df",
   "_spec": "elliptic@=6.4.0",
-  "_where": "/mnt/g/developer/digibyte/digiassets/digibyte-js",
+  "_where": "/mnt/g/developer/auroracoin/digiassets/auroracoin-js",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -61929,10 +61929,10 @@ exports.createContext = Script.createContext = function (context) {
 
 },{"indexof":170}],255:[function(require,module,exports){
 module.exports={
-  "name": "digibyte",
+  "name": "auroracoin",
   "version": "0.15.6",
-  "description": "A pure and powerful JavaScript DigiByte library.",
-  "author": "DigiByte <dev@digibyte.co>",
+  "description": "A pure and powerful JavaScript Auroracoin library.",
+  "author": "Auroracoin <dev@auroracoin.co>",
   "main": "index.js",
   "scripts": {
     "lint": "gulp lint",
@@ -61988,7 +61988,7 @@ module.exports={
   ],
   "keywords": [
     "bitcoin",
-    "digibyte",
+    "auroracoin",
     "transaction",
     "address",
     "p2p",
@@ -62005,7 +62005,7 @@ module.exports={
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/digicontributer/digibyte-js.git"
+    "url": "https://github.com/digicontributer/auroracoin-js.git"
   },
   "browser": {
     "request": "browser-request"
@@ -62020,7 +62020,7 @@ module.exports={
     "sffc-encoder": "^0.1.9"
   },
   "devDependencies": {
-    "digibyte-build": "digibyte-core/digibyte-build",
+    "auroracoin-build": "auroracoin-core/auroracoin-build",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
     "gulp": "^3.8.10",

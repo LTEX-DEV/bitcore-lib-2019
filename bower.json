@@ -1,8 +1,8 @@
 {
-  "name": "digibyte",
-  "main": "./digibyte.min.js",
+  "name": "auroracoin",
+  "main": "./auroracoin.min.js",
   "version": "0.14.2",
-  "homepage": "http://digibyte.co",
+  "homepage": "http://auroracoin.co",
   "authors": [
     "BitPay, Inc."
   ],
@@ -12,8 +12,8 @@
   ],
   "keywords": [
     "bitcoin",
-    "digibyte",
-    "digibyte",
+    "auroracoin",
+    "auroracoin",
   ],
   "license": "MIT",
   "ignore": [

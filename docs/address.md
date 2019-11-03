@@ -1,8 +1,8 @@
-# DigiByte Address
-Represents a digibyte address. Addresses are the most popular way to make digibyte transactions. See [the official Bitcoin Wiki](https://en.bitcoin.it/wiki/Address) for technical background information.
+# Auroracoin Address
+Represents a auroracoin address. Addresses are the most popular way to make auroracoin transactions. See [the official Bitcoin Wiki](https://en.bitcoin.it/wiki/Address) for technical background information.
 
 ## Instantiate an Address
-To be able to receive digibytes an address is needed, but in order to spend them a private key is necessary. Please take a look at the [`PrivateKey`](privatekey.md) docs for more information about exporting and saving a key.  
+To be able to receive auroracoins an address is needed, but in order to spend them a private key is necessary. Please take a look at the [`PrivateKey`](privatekey.md) docs for more information about exporting and saving a key.  
 
 ```javascript
 var privateKey = new PrivateKey();
@@ -52,7 +52,7 @@ var address = publicKey.toLegacyAddress();
 ```
 
 ## Validating an Address
-The main use that we expect you'll have for the `Address` class in DigiByte.JS is validating that an address is a valid one, what type of address it is (you may be interested on knowing if the address is a simple "pay to public key hash" address or a "pay to script hash" address) and what network does the address belong to.
+The main use that we expect you'll have for the `Address` class in Auroracoin.JS is validating that an address is a valid one, what type of address it is (you may be interested on knowing if the address is a simple "pay to public key hash" address or a "pay to script hash" address) and what network does the address belong to.
 
 The code to do these validations looks like this:
 
@@ -80,4 +80,4 @@ var error = Address.getValidationError(input, Networks.testnet);
 }
 ```
 
-The errors are listed in the generated file in the [errors folder](https://github.com/digicontributer/digibyte-js/tree/master/lib/errors). There's a structure to errors defined in the [spec.js file](https://github.com/digicontributer/digibyte-js/tree/master/lib/errors/spec.js).
+The errors are listed in the generated file in the [errors folder](https://github.com/digicontributer/auroracoin-js/tree/master/lib/errors). There's a structure to errors defined in the [spec.js file](https://github.com/digicontributer/auroracoin-js/tree/master/lib/errors/spec.js).

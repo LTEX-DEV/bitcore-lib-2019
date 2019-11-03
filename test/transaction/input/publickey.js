@@ -1,9 +1,9 @@
 'use strict';
 
 var should = require('chai').should();
-var digibyte = require('../../..');
-var Transaction = digibyte.Transaction;
-var PrivateKey = digibyte.PrivateKey;
+var auroracoin = require('../../..');
+var Transaction = auroracoin.Transaction;
+var PrivateKey = auroracoin.PrivateKey;
 
 describe('PublicKeyInput', function() {
 

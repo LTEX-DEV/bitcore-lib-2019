@@ -5,13 +5,13 @@ var should = require('chai').should();
 var expect = require('chai').expect;
 var _ = require('lodash');
 
-var digibyte = require('../../..');
-var Transaction = digibyte.Transaction;
-var PrivateKey = digibyte.PrivateKey;
-var Address = digibyte.Address;
-var Script = digibyte.Script;
-var Networks = digibyte.Networks;
-var Signature = digibyte.crypto.Signature;
+var auroracoin = require('../../..');
+var Transaction = auroracoin.Transaction;
+var PrivateKey = auroracoin.PrivateKey;
+var Address = auroracoin.Address;
+var Script = auroracoin.Script;
+var Networks = auroracoin.Networks;
+var Signature = auroracoin.crypto.Signature;
 
 describe('PublicKeyHashInput', function() {
 

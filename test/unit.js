@@ -3,9 +3,9 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 
-var digibyte = require('..');
-var errors = digibyte.errors;
-var Unit = digibyte.Unit;
+var auroracoin = require('..');
+var errors = auroracoin.errors;
+var Unit = auroracoin.Unit;
 
 describe('Unit', function() {
 

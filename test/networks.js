@@ -2,8 +2,8 @@
 
 var expect = require('chai').expect;
 var should = require('chai').should();
-var digibyte = require('..');
-var networks = digibyte.Networks;
+var auroracoin = require('..');
+var networks = auroracoin.Networks;
 
 describe('Networks', function() {
 
@@ -26,7 +26,7 @@ describe('Networks', function() {
     networks.testnet.networkMagic.should.deep.equal(new Buffer('fdc8bddd', 'hex'));
     networks.testnet.port.should.equal(12026);
     networks.testnet.dnsSeeds.should.deep.equal([
-      'testnet-1.us.digibyteservers.io'
+      'testnet-1.us.auroracoinservers.io'
     ]);
   });
 

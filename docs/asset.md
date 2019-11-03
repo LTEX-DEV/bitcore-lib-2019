@@ -2,7 +2,7 @@
 Represents a DigiAsset. DigiAssets are a way to encode transactions with specific instructions. See [the official DigiAsset Wiki](https://digiassets.net) for further details.
 
 ## Creating An Issuance Asset
-To create an issuance asset you need a funded DigiByte address with associated utxos pulled from (https://explorerapi.digiassets.net/api/getaddressutxos?address=).
+To create an issuance asset you need a funded Auroracoin address with associated utxos pulled from (https://explorerapi.digiassets.net/api/getaddressutxos?address=).
 
 ```javascript
 var tx = new Transaction();
@@ -22,7 +22,7 @@ var assetData = {
 };
 ```
 
-From here you will need to extract the metafile and upload it to an instance of [DigiAsset-Metadata-Server](https://github.com/DigiByte-Core/DigiAssets-Metadata-Server)
+From here you will need to extract the metafile and upload it to an instance of [DigiAsset-Metadata-Server](https://github.com/Auroracoin-Core/DigiAssets-Metadata-Server)
 
 ```javascript
 // POST metafile to digiassets-metadata-server
@@ -39,7 +39,7 @@ console.log('Transaction: ' + tx);
 console.log('Asset: ' + digiAsset);
 ```
 
-tx is now ready to be signed and broadcasted to the DigiByte Blockchain!
+tx is now ready to be signed and broadcasted to the Auroracoin Blockchain!
 
 ## Creating An Transfer Asset
 Creating a transfer Asset requires associated utxos pulled from (https://explorerapi.digiassets.net/api/getaddressutxos?address=)
@@ -60,7 +60,7 @@ console.log('Transaction: ' + tx);
 console.log('Asset: ' + digiAsset);
 ```
 
-tx is now ready to be signed and broadcasted to the DigiByte Blockchain!
+tx is now ready to be signed and broadcasted to the Auroracoin Blockchain!
 
 ## Creating An Burn Asset
 Creating a burn Asset requires associated utxos pulled from (https://explorerapi.digiassets.net/api/getaddressutxos?address=)
@@ -81,4 +81,4 @@ console.log('Transaction: ' + tx);
 console.log('Asset: ' + digiAsset);
 ```
 
-tx is now ready to be signed and broadcasted to the DigiByte Blockchain!
+tx is now ready to be signed and broadcasted to the Auroracoin Blockchain!

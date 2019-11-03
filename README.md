@@ -1,69 +1,69 @@
-DigiByte.JS
+Auroracoin.JS
 =======
 
 [![NPM Package](https://img.shields.io/npm/v/bitcore-lib.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-lib)
-[![Build Status](https://img.shields.io/travis/digibyte/digibyte.js.svg?branch=master&style=flat-square)](https://travis-ci.org/digibyte/digibyte.js)
-[![Coverage Status](https://img.shields.io/coveralls/digibyte/digibyte.js.svg?style=flat-square)](https://coveralls.io/r/digibyte/digibyte.js)
+[![Build Status](https://img.shields.io/travis/auroracoin/auroracoin.js.svg?branch=master&style=flat-square)](https://travis-ci.org/auroracoin/auroracoin.js)
+[![Coverage Status](https://img.shields.io/coveralls/auroracoin/auroracoin.js.svg?style=flat-square)](https://coveralls.io/r/auroracoin/auroracoin.js)
 
-A pure and powerful JavaScript DigiByte library.
+A pure and powerful JavaScript Auroracoin library.
 
 ## Principles
 
-DigiByte is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the DigiByte network allows for highly resilient digibyte infrastructure, and the developer community needs reliable, open-source tools to implement digibyte apps and services.
+Auroracoin is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the Auroracoin network allows for highly resilient auroracoin infrastructure, and the developer community needs reliable, open-source tools to implement auroracoin apps and services.
 
 ## Get Started
 
 ```
-npm install digibyte
+npm install auroracoin
 ```
 
 ```
-bower install digibyte
+bower install auroracoin
 ```
 
 ## Documentation
 
-The complete docs are hosted here: [digibyte.js documentation](http://docs.digibyte.co).
+The complete docs are hosted here: [auroracoin.js documentation](http://docs.auroracoin.co).
 
 ## Examples
 
-* [Generate a random address](https://github.com/digibyte/digibyte.js/blob/master/docs/examples.md#generate-a-random-address)
-* [Generate a address from a SHA256 hash](https://github.com/digibyte/digibyte.js/blob/master/docs/examples.md#generate-a-address-from-a-sha256-hash)
-* [Import an address via WIF](https://github.com/digibyte/digibyte.js/blob/master/docs/examples.md#import-an-address-via-wif)
-* [Create a Transaction](https://github.com/digibyte/digibyte.js/blob/master/docs/examples.md#create-a-transaction)
-* [Sign a DigiByte message](https://github.com/digibyte/digibyte.js/blob/master/docs/examples.md#sign-a-bitcoin-message)
-* [Verify a DigiByte message](https://github.com/digibyte/digibyte.js/blob/master/docs/examples.md#verify-a-bitcoin-message)
-* [Create an OP RETURN transaction](https://github.com/digibyte/digibyte.js/blob/master/docs/examples.md#create-an-op-return-transaction)
-* [Create a 2-of-3 multisig P2SH address](https://github.com/digibyte/digibyte.js/blob/master/docs/examples.md#create-a-2-of-3-multisig-p2sh-address)
-* [Spend from a 2-of-2 multisig P2SH address](https://github.com/digibyte/digibyte.js/blob/master/docs/examples.md#spend-from-a-2-of-2-multisig-p2sh-address)
+* [Generate a random address](https://github.com/auroracoin/auroracoin.js/blob/master/docs/examples.md#generate-a-random-address)
+* [Generate a address from a SHA256 hash](https://github.com/auroracoin/auroracoin.js/blob/master/docs/examples.md#generate-a-address-from-a-sha256-hash)
+* [Import an address via WIF](https://github.com/auroracoin/auroracoin.js/blob/master/docs/examples.md#import-an-address-via-wif)
+* [Create a Transaction](https://github.com/auroracoin/auroracoin.js/blob/master/docs/examples.md#create-a-transaction)
+* [Sign a Auroracoin message](https://github.com/auroracoin/auroracoin.js/blob/master/docs/examples.md#sign-a-bitcoin-message)
+* [Verify a Auroracoin message](https://github.com/auroracoin/auroracoin.js/blob/master/docs/examples.md#verify-a-bitcoin-message)
+* [Create an OP RETURN transaction](https://github.com/auroracoin/auroracoin.js/blob/master/docs/examples.md#create-an-op-return-transaction)
+* [Create a 2-of-3 multisig P2SH address](https://github.com/auroracoin/auroracoin.js/blob/master/docs/examples.md#create-a-2-of-3-multisig-p2sh-address)
+* [Spend from a 2-of-2 multisig P2SH address](https://github.com/auroracoin/auroracoin.js/blob/master/docs/examples.md#spend-from-a-2-of-2-multisig-p2sh-address)
 
 
 ## Security
 
-We're using DigiByte.JS in production, but please use common sense when doing anything related to finances! We take no responsibility for your implementation decisions.
+We're using Auroracoin.JS in production, but please use common sense when doing anything related to finances! We take no responsibility for your implementation decisions.
 
-If you find a security issue, please email dev@digibyte.co.
+If you find a security issue, please email dev@auroracoin.co.
 
 ## Contributing
 
-Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/digibyte/digibyte.js/blob/master/CONTRIBUTING.md) file.
+Please send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/auroracoin/auroracoin.js/blob/master/CONTRIBUTING.md) file.
 
 ## Building the Browser Bundle
 
-To build a digibyte.js full bundle for the browser:
+To build a auroracoin.js full bundle for the browser:
 
 ```sh
 gulp browser
 ```
 
-This will generate files named `digibyte.js` and `digibyte.min.js`.
+This will generate files named `auroracoin.js` and `auroracoin.min.js`.
 
 
 ## Development & Tests
 
 ```sh
-git clone https://github.com/digicontributer/digibyte-js.git
-cd digibyte.js
+git clone https://github.com/LTEX-DEV/bitcore-lib-2019.git
+cd auroracoin.js
 npm install
 ```
 
@@ -78,6 +78,6 @@ or create a test coverage report (you can open `coverage/lcov-report/index.html`
 
 ## License
 
-Code released under [the MIT license](https://github.com/digibyte/digibyte.js/blob/master/LICENSE).
+Code released under [the MIT license](https://github.com/auroracoin/auroracoin.js/blob/master/LICENSE).
 
-Copyright 2017 Digibyte, Co.
+Copyright 2017 Auroracoin, Co.

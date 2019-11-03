@@ -6,11 +6,11 @@ var chai = require('chai');
 var should = chai.should();
 var expect = chai.expect;
 
-var digibyte = require('..');
-var PublicKey = digibyte.PublicKey;
-var Address = digibyte.Address;
-var Script = digibyte.Script;
-var Networks = digibyte.Networks;
+var auroracoin = require('..');
+var PublicKey = auroracoin.PublicKey;
+var Address = auroracoin.Address;
+var Script = auroracoin.Script;
+var Networks = auroracoin.Networks;
 
 var validbase58 = require('./data/bitcoind/base58_keys_valid.json');
 var invalidbase58 = require('./data/bitcoind/base58_keys_invalid.json');
@@ -39,7 +39,7 @@ describe('Address', function() {
     }).should.throw('Third argument must be "pubkeyhash", "scripthash", "witnesspubkeyhash", or "witnessscripthash"');
   });
 
-  describe('digibyted compliance', function() {
+  describe('auroracoind compliance', function() {
     validbase58.map(function(d) {
       if (!d[2].isPrivkey) {
         it('should describe address ' + d[0] + ' as valid', function() {
@@ -313,7 +313,7 @@ describe('Address', function() {
     it('should error because of unrecognized data format', function() {
       (function() {
         return new Address(new Error());
-      }).should.throw(digibyte.errors.InvalidArgument);
+      }).should.throw(auroracoin.errors.InvalidArgument);
     });
 
     it('should error because of incorrect format for pubkey hash', function() {
@@ -516,7 +516,7 @@ describe('Address', function() {
     it('will fail with invalid state', function() {
       expect(function() {
         return Address.fromObject('¹');
-      }).to.throw(digibyte.errors.InvalidState);
+      }).to.throw(auroracoin.errors.InvalidState);
     });
   });
 

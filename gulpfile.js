@@ -1,5 +1,5 @@
 
 
-var digibyteTasks = require('digibyte-build');
+var auroracoinTasks = require('auroracoin-build');
 
-digibyteTasks('');
+auroracoinTasks('');

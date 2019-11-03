@@ -1,11 +1,11 @@
 'use strict';
 
-var digibyte = require('../..');
+var auroracoin = require('../..');
 var BN = require('../../lib/crypto/bn');
-var BufferReader = digibyte.encoding.BufferReader;
-var BufferWriter = digibyte.encoding.BufferWriter;
+var BufferReader = auroracoin.encoding.BufferReader;
+var BufferWriter = auroracoin.encoding.BufferWriter;
 
-var BlockHeader = digibyte.BlockHeader;
+var BlockHeader = auroracoin.BlockHeader;
 var fs = require('fs');
 var should = require('chai').should();
 

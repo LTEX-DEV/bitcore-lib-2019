@@ -2,14 +2,14 @@
 
 var should = require('chai').should();
 var sinon = require('sinon');
-var digibyte = require('../..');
-var Interpreter = digibyte.Script.Interpreter;
-var Transaction = digibyte.Transaction;
-var PrivateKey = digibyte.PrivateKey;
-var Script = digibyte.Script;
-var BN = digibyte.crypto.BN;
-var BufferWriter = digibyte.encoding.BufferWriter;
-var Opcode = digibyte.Opcode;
+var auroracoin = require('../..');
+var Interpreter = auroracoin.Script.Interpreter;
+var Transaction = auroracoin.Transaction;
+var PrivateKey = auroracoin.PrivateKey;
+var Script = auroracoin.Script;
+var BN = auroracoin.crypto.BN;
+var BufferWriter = auroracoin.encoding.BufferWriter;
+var Opcode = auroracoin.Opcode;
 var _ = require('lodash');
 
 var script_valid = require('../data/bitcoind/script_valid');
@@ -17,8 +17,8 @@ var script_invalid = require('../data/bitcoind/script_invalid');
 var tx_valid = require('../data/bitcoind/tx_valid');
 var tx_invalid = require('../data/bitcoind/tx_invalid');
 
-//the script string format used in digibyted data tests
-Script.fromDigiBytedString = function(str) {
+//the script string format used in auroracoind data tests
+Script.fromAuroracoindString = function(str) {
   var bw = new BufferWriter();
   var tokens = str.split(' ');
   for (var i = 0; i < tokens.length; i++) {
@@ -301,8 +301,8 @@ describe('Interpreter', function() {
   };
 
   var testFixture = function(vector, expected) {
-    var scriptSig = Script.fromDigiBytedString(vector[0]);
-    var scriptPubkey = Script.fromDigiBytedString(vector[1]);
+    var scriptSig = Script.fromAuroracoindString(vector[0]);
+    var scriptPubkey = Script.fromAuroracoindString(vector[1]);
     var flags = getFlags(vector[2]);
 
     var hashbuf = new Buffer(32);
@@ -336,7 +336,7 @@ describe('Interpreter', function() {
     var verified = interp.verify(scriptSig, scriptPubkey, spendtx, 0, flags);
     verified.should.equal(expected);
   };
-  describe('digibyted script evaluation fixtures', function() {
+  describe('auroracoind script evaluation fixtures', function() {
     var testAllFixtures = function(set, expected) {
       var c = 0;
       set.forEach(function(vector) {
@@ -358,7 +358,7 @@ describe('Interpreter', function() {
     testAllFixtures(script_invalid, false);
 
   });
-  describe('digibyted transaction evaluation fixtures', function() {
+  describe('auroracoind transaction evaluation fixtures', function() {
     var test_txs = function(set, expected) {
       var c = 0;
       set.forEach(function(vector) {
@@ -378,9 +378,9 @@ describe('Interpreter', function() {
             var txoutnum = input[1];
             var scriptPubKeyStr = input[2];
             if (txoutnum === -1) {
-              txoutnum = 0xffffffff; //digibyted casts -1 to an unsigned int
+              txoutnum = 0xffffffff; //auroracoind casts -1 to an unsigned int
             }
-            map[txid + ':' + txoutnum] = Script.fromDigiBytedString(scriptPubKeyStr);
+            map[txid + ':' + txoutnum] = Script.fromAuroracoindString(scriptPubKeyStr);
           });
 
           var tx = new Transaction(txhex);

@@ -3,13 +3,13 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 
-var digibyte = require('..');
-var Point = digibyte.crypto.Point;
-var BN = digibyte.crypto.BN;
-var PublicKey = digibyte.PublicKey;
-var PrivateKey = digibyte.PrivateKey;
-var Address = digibyte.Address;
-var Networks = digibyte.Networks;
+var auroracoin = require('..');
+var Point = auroracoin.crypto.Point;
+var BN = auroracoin.crypto.BN;
+var PublicKey = auroracoin.PublicKey;
+var PrivateKey = auroracoin.PrivateKey;
+var Address = auroracoin.Address;
+var Networks = auroracoin.Networks;
 
 /* jshint maxlen: 200 */
 
