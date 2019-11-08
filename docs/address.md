@@ -13,7 +13,7 @@ You can also instantiate an Address from a String, [PublicKey](publickey.md), or
 
 ```javascript
 // from a string
-var address = Address.fromString('dgb1qrrx8v0u65t5tnx84tfdlqwja0sq62840d4h7gy');
+var address = Address.fromString('aur1qrrx8v0u65t5tnx84tfdlqwja0sq62840d4h7gy');
 
 // a default network address from a public key
 var publicKey = PublicKey(privateKey);

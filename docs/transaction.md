@@ -3,7 +3,7 @@ Auroracoin.JS provides a very simple API for creating transactions. We expect th
 
 A Transaction contains a set of inputs and a set of outputs. Each input contains a reference to another transaction's output, and a signature that allows the value referenced in that output to be used in this transaction.
 
-Note also that an output can be used only once. That's why there's a concept of "change address" in the auroracoin ecosystem: if an output of 10 DGB is available for me to spend, but I only need to transmit 1 DGB, I'll create a transaction with two outputs, one with 1 DGB that I want to spend, and the other with 9 DGB to a change address, so I can spend this 9 DGB with another private key that I own.
+Note also that an output can be used only once. That's why there's a concept of "change address" in the auroracoin ecosystem: if an output of 10 AUR is available for me to spend, but I only need to transmit 1 AUR, I'll create a transaction with two outputs, one with 1 AUR that I want to spend, and the other with 9 AUR to a change address, so I can spend this 9 AUR with another private key that I own.
 
 So, in order to transmit a valid transaction, you must know what other transactions on the network store outputs that have not been spent and that are available for you to spend (meaning that you have the set of keys that can validate you own those funds). The unspent outputs are usually referred to as "utxo"s.
 
@@ -29,7 +29,7 @@ You can also override the fee estimation with another amount, specified in satos
 
 ```javascript
 var transaction = new Transaction().fee(5430); // Minimum non-dust amount
-var transaction = new Transaction().fee(1e8);  // Generous fee of 1 DGB
+var transaction = new Transaction().fee(1e8);  // Generous fee of 1 AUR
 ```
 
 ## Multisig Transactions

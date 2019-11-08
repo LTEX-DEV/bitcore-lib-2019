@@ -1196,7 +1196,7 @@ Asset.prototype.insertSatoshiToTransaction = function(utxos, tx, missing, inputs
             txid: utxo.txid,
             vout: utxo.index,
             scriptPubKey: utxo.scriptPubKey.hex,
-            amount: Unit.fromSatoshis(utxo.value).toDGB(),
+            amount: Unit.fromSatoshis(utxo.value).toAUR(),
           });
           tx.from(output);
           inputsValue.amount += utxo.value;
@@ -2201,7 +2201,7 @@ var nDiffChangeTarget = 67200;
 var patchBlockRewardDuration = 10080;
 var patchBlockRewardDuration2 = 80160
 var alwaysUpdateDiffChangeTarget = 400000;
-var nSubsidy = Unit.fromSatoshis(1).toDGB();
+var nSubsidy = Unit.fromSatoshis(1).toAUR();
 
 /**
  * Instantiate a Block from a Buffer, JSON object, or Object with
@@ -2471,17 +2471,17 @@ Block.Values = {
   NULL_HASH: new Buffer('0000000000000000000000000000000000000000000000000000000000000000', 'hex')
 };
 
-Block.GetDGBSubsidy = function GetDGBSubsidy(height) {
+Block.GetAURSubsidy = function GetAURSubsidy(height) {
   var qSubsidy;
   if (height < 400000) {
-    qSubsidy = Unit.fromDGB(8000).toSatoshis();
+    qSubsidy = Unit.fromAUR(8000).toSatoshis();
     var blocks = height - nDiffChangeTarget;
     var weeks = (blocks / patchBlockRewardDuration);
     for (var i = 0; i < weeks; i++){
       qSubsidy -= (qSubsidy/200);
     }
   } else {
-    qSubsidy = Unit.fromDGB(2484).toSatoshis();
+    qSubsidy = Unit.fromAUR(2484).toSatoshis();
     var blocks = height - alwaysUpdateDiffChangeTarget;
     var weeks = (blocks / patchBlockRewardDuration2) + 1;
     for (var i = 0; i < weeks; i++) {
@@ -2493,20 +2493,20 @@ Block.GetDGBSubsidy = function GetDGBSubsidy(height) {
    
 Block.getBlockValue = function getBlockValue(height) {
   if (height < nDiffChangeTarget) {
-    nSubsidy = Unit.fromDGB(8000).toSatoshis();         
+    nSubsidy = Unit.fromAUR(8000).toSatoshis();         
     if(height < 1440) {
-      nSubsidy = Unit.fromDGB(72000).toSatoshis();
+      nSubsidy = Unit.fromAUR(72000).toSatoshis();
     } else if(height < 5760) {
-      nSubsidy = Unit.fromDGB(16000).toSatoshis();
+      nSubsidy = Unit.fromAUR(16000).toSatoshis();
     }
   } else {
-    nSubsidy = Block.GetDGBSubsidy(height);
+    nSubsidy = Block.GetAURSubsidy(height);
   }
                  
-  if(nSubsidy < Unit.fromDGB(1).toSatoshis()){
-    nSubsidy = Unit.fromDGB(1).toSatoshis();
+  if(nSubsidy < Unit.fromAUR(1).toSatoshis()){
+    nSubsidy = Unit.fromAUR(1).toSatoshis();
   }
-  return Unit.fromSatoshis(nSubsidy).toDGB();
+  return Unit.fromSatoshis(nSubsidy).toAUR();
 };
 
 module.exports = Block;
@@ -4498,7 +4498,7 @@ Bech32.encode = function(buf, LIMIT, prefix) {
 
   LIMIT = LIMIT || 90;
   if (!prefix) {
-    prefix = 'dgb';
+    prefix = 'aur';
   }
   if ((prefix.length + 7 + buf.length) > LIMIT)
     throw new Error('Exceeds length limit');
@@ -6671,7 +6671,7 @@ function removeNetwork(network) {
 addNetwork({
   name: 'livenet',
   alias: 'mainnet',
-  prefix: 'dgb',
+  prefix: 'aur',
   pubkeyhash: 0x1e,
   privatekey: 0x80,
   privatekeyOld: 0x9e,
@@ -6697,7 +6697,7 @@ var livenet = get('livenet');
 addNetwork({
   name: 'testnet',
   alias: 'regtest',
-  prefix: 'dgbt',
+  prefix: 'aurt',
   pubkeyhash: 0x7e,
   privatekey: 0xfe,
   scripthash: 0x8c,
@@ -13821,7 +13821,7 @@ var Unit = require('../unit');
  * @param {string|Script} data.scriptPubKey the script that must be resolved to release the funds
  * @param {string|Script=} data.script alias for `scriptPubKey`
  * @param {number} data.amount amount of bitcoins associated
- * @param {number=} data.satoshis alias for `amount`, but expressed in satoshis (1 DGB = 1e8 satoshis)
+ * @param {number=} data.satoshis alias for `amount`, but expressed in satoshis (1 AUR = 1e8 satoshis)
  * @param {string|Address=} data.address the associated address to the script, if provided
  */
 function UnspentOutput(data) {
@@ -13846,7 +13846,7 @@ function UnspentOutput(data) {
   var script = new Script(data.scriptPubKey || data.script);
   $.checkArgument(!_.isUndefined(data.amount) || !_.isUndefined(data.satoshis),
                   'Must provide an amount for the output');
-  var amount = !_.isUndefined(data.amount) ? new Unit.fromDGB(data.amount).toSatoshis() : data.satoshis;
+  var amount = !_.isUndefined(data.amount) ? new Unit.fromAUR(data.amount).toSatoshis() : data.satoshis;
   $.checkArgument(_.isNumber(amount), 'Amount must be a number');
   JSUtil.defineImmutable(this, {
     address: address,
@@ -13893,7 +13893,7 @@ UnspentOutput.prototype.toObject = UnspentOutput.prototype.toJSON = function toO
     txid: this.txId,
     vout: this.outputIndex,
     scriptPubKey: this.script.toBuffer().toString('hex'),
-    amount: Unit.fromSatoshis(this.satoshis).toDGB()
+    amount: Unit.fromSatoshis(this.satoshis).toAUR()
   };
 };
 
@@ -13908,30 +13908,30 @@ var errors = require('./errors');
 var $ = require('./util/preconditions');
 
 var UNITS = {
-  'DGB'      : [1e8, 8],
-  'mDGB'     : [1e5, 5],
-  'uDGB'     : [1e2, 2],
+  'AUR'      : [1e8, 8],
+  'mAUR'     : [1e5, 5],
+  'uAUR'     : [1e2, 2],
   'bits'     : [1e2, 2],
   'satoshis' : [1, 0]
 };
 
 /**
  * Utility for handling and converting bitcoins units. The supported units are
- * DGB, mDGB, bits (also named uDGB) and satoshis. A unit instance can be created with an
- * amount and a unit code, or alternatively using static methods like {fromDGB}.
+ * AUR, mAUR, bits (also named uAUR) and satoshis. A unit instance can be created with an
+ * amount and a unit code, or alternatively using static methods like {fromAUR}.
  * It also allows to be created from a fiat amount and the exchange rate, or
  * alternatively using the {fromFiat} static method.
  * You can consult for different representation of a unit instance using it's
  * {to} method, the fixed unit methods like {toSatoshis} or alternatively using
  * the unit accessors. It also can be converted to a fiat amount by providing the
- * corresponding DGB/fiat exchange rate.
+ * corresponding AUR/fiat exchange rate.
  *
  * @example
  * ```javascript
- * var sats = Unit.fromDGB(1.3).toSatoshis();
- * var mili = Unit.fromBits(1.3).to(Unit.mDGB);
+ * var sats = Unit.fromAUR(1.3).toSatoshis();
+ * var mili = Unit.fromBits(1.3).to(Unit.mAUR);
  * var bits = Unit.fromFiat(1.3, 350).bits;
- * var dgb = new Unit(1.3, Unit.bits).DGB;
+ * var aur = new Unit(1.3, Unit.bits).AUR;
  * ```
  *
  * @param {Number} amount - The amount to be represented
@@ -13944,13 +13944,13 @@ function Unit(amount, code) {
     return new Unit(amount, code);
   }
 
-  // convert fiat to DGB
+  // convert fiat to AUR
   if (_.isNumber(code)) {
     if (code <= 0) {
       throw new errors.Unit.InvalidRate(code);
     }
     amount = amount / code;
-    code = Unit.DGB;
+    code = Unit.AUR;
   }
 
   this._value = this._from(amount, code);
@@ -13982,23 +13982,23 @@ Unit.fromObject = function fromObject(data){
 };
 
 /**
- * Returns a Unit instance created from an amount in DGB
+ * Returns a Unit instance created from an amount in AUR
  *
- * @param {Number} amount - The amount in DGB
+ * @param {Number} amount - The amount in AUR
  * @returns {Unit} A Unit instance
  */
-Unit.fromDGB = function(amount) {
-  return new Unit(amount, Unit.DGB);
+Unit.fromAUR = function(amount) {
+  return new Unit(amount, Unit.AUR);
 };
 
 /**
- * Returns a Unit instance created from an amount in mDGB
+ * Returns a Unit instance created from an amount in mAUR
  *
- * @param {Number} amount - The amount in mDGB
+ * @param {Number} amount - The amount in mAUR
  * @returns {Unit} A Unit instance
  */
 Unit.fromMillis = Unit.fromMilis = function(amount) {
-  return new Unit(amount, Unit.mDGB);
+  return new Unit(amount, Unit.mAUR);
 };
 
 /**
@@ -14025,7 +14025,7 @@ Unit.fromSatoshis = function(amount) {
  * Returns a Unit instance created from a fiat amount and exchange rate.
  *
  * @param {Number} amount - The amount in fiat
- * @param {Number} rate - The exchange rate DGB/fiat
+ * @param {Number} rate - The exchange rate AUR/fiat
  * @returns {Unit} A Unit instance
  */
 Unit.fromFiat = function(amount, rate) {
@@ -14050,7 +14050,7 @@ Unit.prototype.to = function(code) {
     if (code <= 0) {
       throw new errors.Unit.InvalidRate(code);
     }
-    return parseFloat((this.DGB * code).toFixed(2));
+    return parseFloat((this.AUR * code).toFixed(2));
   }
 
   if (!UNITS[code]) {
@@ -14062,21 +14062,21 @@ Unit.prototype.to = function(code) {
 };
 
 /**
- * Returns the value represented in DGB
+ * Returns the value represented in AUR
  *
- * @returns {Number} The value converted to DGB
+ * @returns {Number} The value converted to AUR
  */
-Unit.prototype.toDGB = function() {
-  return this.to(Unit.DGB);
+Unit.prototype.toAUR = function() {
+  return this.to(Unit.AUR);
 };
 
 /**
- * Returns the value represented in mDGB
+ * Returns the value represented in mAUR
  *
- * @returns {Number} The value converted to mDGB
+ * @returns {Number} The value converted to mAUR
  */
 Unit.prototype.toMillis = Unit.prototype.toMilis = function() {
-  return this.to(Unit.mDGB);
+  return this.to(Unit.mAUR);
 };
 
 /**
@@ -14100,7 +14100,7 @@ Unit.prototype.toSatoshis = function() {
 /**
  * Returns the value represented in fiat
  *
- * @param {string} rate - The exchange rate between DGB/currency
+ * @param {string} rate - The exchange rate between AUR/currency
  * @returns {Number} The value converted to satoshis
  */
 Unit.prototype.atRate = function(rate) {
@@ -14123,8 +14123,8 @@ Unit.prototype.toString = function() {
  */
 Unit.prototype.toObject = Unit.prototype.toJSON = function toObject() {
   return {
-    amount: this.DGB,
-    code: Unit.DGB
+    amount: this.AUR,
+    code: Unit.AUR
   };
 };
 
@@ -14299,9 +14299,9 @@ URI.prototype._fromObject = function(obj) {
 };
 
 /**
- * Internal function to transform a DGB string amount into satoshis
+ * Internal function to transform a AUR string amount into satoshis
  *
- * @param {string} amount - Amount DGB string
+ * @param {string} amount - Amount AUR string
  * @throws {TypeError} Invalid amount
  * @returns {Object} Amount represented in satoshis
  */
@@ -14310,7 +14310,7 @@ URI.prototype._parseAmount = function(amount) {
   if (isNaN(amount)) {
     throw new TypeError('Invalid amount');
   }
-  return Unit.fromDGB(amount).toSatoshis();
+  return Unit.fromAUR(amount).toSatoshis();
 };
 
 URI.prototype.toObject = URI.prototype.toJSON = function toObject() {
@@ -14333,7 +14333,7 @@ URI.prototype.toObject = URI.prototype.toJSON = function toObject() {
 URI.prototype.toString = function() {
   var query = {};
   if (this.amount) {
-    query.amount = Unit.fromSatoshis(this.amount).toDGB();
+    query.amount = Unit.fromSatoshis(this.amount).toAUR();
   }
   if (this.message) {
     query.message = this.message;

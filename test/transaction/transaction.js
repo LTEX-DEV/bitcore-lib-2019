@@ -52,7 +52,7 @@ describe('Transaction', function() {
       'script': testScript,
       'satoshis': testAmount
     })
-    .to('dgbt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', testAmount - 10000);
+    .to('aurt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', testAmount - 10000);
 
   it('can serialize to a plain javascript object', function() {
     var object = testTransaction.toObject();
@@ -65,7 +65,7 @@ describe('Transaction', function() {
 
   it('will not accept NaN as an amount', function() {
     (function() {
-      var stringTx = new Transaction().to('dgbt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', NaN);
+      var stringTx = new Transaction().to('aurt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', NaN);
     }).should.throw('Amount is expected to be a positive integer');
   });
 
@@ -200,7 +200,7 @@ describe('Transaction', function() {
 
   // TODO: Migrate this into a test for inputs
 
-  var fromAddress = 'dgbt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata';
+  var fromAddress = 'aurt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata';
   var simpleUtxoWith100000Satoshis = {
     address: fromAddress,
     txId: 'a477af6b2667c29670467e4e0728b685ee07b240235771862318e29ddbe58458',
@@ -218,9 +218,9 @@ describe('Transaction', function() {
   };
   var anyoneCanSpendUTXO = JSON.parse(JSON.stringify(simpleUtxoWith100000Satoshis));
   anyoneCanSpendUTXO.script = new Script().add('OP_TRUE');
-  var toAddress = 'dgbt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata';
-  var changeAddress = 'dgbt1q9xj5ray8dan5cfq5gk6ejq5pywrsf7fm3dwyxu';
-  var changeAddressP2WSH = 'dgbt1qxw95r7g7h2ahf56rpmnmpfpw76lm3a6w3k9jnww8x82fs0epsfhqjmpnya';
+  var toAddress = 'aurt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata';
+  var changeAddress = 'aurt1q9xj5ray8dan5cfq5gk6ejq5pywrsf7fm3dwyxu';
+  var changeAddressP2WSH = 'aurt1qxw95r7g7h2ahf56rpmnmpfpw76lm3a6w3k9jnww8x82fs0epsfhqjmpnya';
   var privateKey = 'eapjRKSpbpuezzEvQTN7pGjXgNTsN5xtTGQ999rQRixcv92L3Nmr';
   var private1 = '6ce7e97e317d2af16c33db0b9270ec047a91bff3eff8558afb5014afb2bb5976';
   var private2 = 'c9b26b0f771a0d2dad88a44de90f05f416b3b385ff1d989343005546a0032890';
@@ -612,7 +612,7 @@ describe('Transaction', function() {
           'script': testScript,
           'satoshis': testAmount
         })
-        .to('dgbt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', testAmount - 10000);
+        .to('aurt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', testAmount - 10000);
 
       tx.outputs[0]._satoshis = 100;
       tx.outputs[0]._satoshisBN = new BN('fffffffffffffff', 16);
@@ -628,7 +628,7 @@ describe('Transaction', function() {
           'script': testScript,
           'satoshis': testAmount
         })
-        .to('dgbt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', testAmount - 10000);
+        .to('aurt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', testAmount - 10000);
 
       tx.outputs[0]._satoshis = -100;
       tx.outputs[0]._satoshisBN = new BN(-100, 10);
@@ -645,7 +645,7 @@ describe('Transaction', function() {
           'script': testScript,
           'satoshis': testAmount
         })
-        .to('dgbt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', testAmount - 10000);
+        .to('aurt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', testAmount - 10000);
 
       tx.toBuffer = sinon.stub().returns({
         length: 10000000
@@ -666,7 +666,7 @@ describe('Transaction', function() {
           'script': testScript,
           'satoshis': testAmount
         })
-        .to('dgbt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', testAmount - 10000);
+        .to('aurt1qy265w5ntr6u08rnms5lr66khn39xzyv5wx8ata', testAmount - 10000);
 
       tx.isCoinbase = sinon.stub().returns(false);
       tx.inputs[0].isNull = sinon.stub().returns(true);

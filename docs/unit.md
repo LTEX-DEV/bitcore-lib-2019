@@ -13,12 +13,12 @@ To understand the need of using the `Unit` class when dealing with unit conversi
 ```
 
 ## Supported units
-The supported units are DGB, mDGB, bits (micro DGBs, uDGB) and satoshis. The codes for each unit can be found as members of the Unit class.
+The supported units are AUR, mAUR, bits (micro AURs, uAUR) and satoshis. The codes for each unit can be found as members of the Unit class.
 
 ```javascript
-var dgbCode = Unit.DGB;
-var mdgbCode = Unit.mDGB;
-var udgbCode = Unit.uDGB;
+var aurCode = Unit.AUR;
+var maurCode = Unit.mAUR;
+var uaurCode = Unit.uAUR;
 var bitsCode = Unit.bits;
 var satsCode = Unit.satoshis;
 ```
@@ -31,11 +31,11 @@ var unit;
 var amount = 100;
 
 // using a unit code
-var unitPreference = Unit.DGB;
+var unitPreference = Unit.AUR;
 unit = new Unit(amount, unitPreference);
 
 // using a known unit
-unit = Unit.fromDGB(amount);
+unit = Unit.fromAUR(amount);
 unit = Unit.fromMilis(amount);
 unit = Unit.fromBits(amount);
 unit = Unit.fromSatoshis(amount);
@@ -48,24 +48,24 @@ Once you have a unit instance, you can check its representation in all the avail
 var unit;
 
 // using a unit code
-var unitPreference = Unit.DGB;
+var unitPreference = Unit.AUR;
 value = Unit.fromSatoshis(amount).to(unitPreference);
 
 // using a known unit
-value = Unit.fromDGB(amount).toDGB();
-value = Unit.fromDGB(amount).toMilis();
-value = Unit.fromDGB(amount).toBits();
-value = Unit.fromDGB(amount).toSatoshis();
+value = Unit.fromAUR(amount).toAUR();
+value = Unit.fromAUR(amount).toMilis();
+value = Unit.fromAUR(amount).toBits();
+value = Unit.fromAUR(amount).toSatoshis();
 
 // using accessors
-value = Unit.fromDGB(amount).DGB;
-value = Unit.fromDGB(amount).mDGB;
-value = Unit.fromDGB(amount).bits;
-value = Unit.fromDGB(amount).satoshis;
+value = Unit.fromAUR(amount).AUR;
+value = Unit.fromAUR(amount).mAUR;
+value = Unit.fromAUR(amount).bits;
+value = Unit.fromAUR(amount).satoshis;
 ```
 
 ## Using a fiat currency
-The unit class also provides a convenient alternative to create an instance from a fiat amount and the corresponding DGB/fiat exchange rate. Any unit instance can be converted to a fiat amount by providing the current exchange rate. Check the example below:
+The unit class also provides a convenient alternative to create an instance from a fiat amount and the corresponding AUR/fiat exchange rate. Any unit instance can be converted to a fiat amount by providing the current exchange rate. Check the example below:
 
 ```javascript
 var unit, fiat;

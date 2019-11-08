@@ -36,14 +36,14 @@ var privateKey = new auroracoin.PrivateKey('L1uyy5qTuGrVXrmrsvHWHgVzW9kKdrp27wBC
 var utxo = {
   "txId" : "115e8f72f39fad874cfab0deed11a80f24f967a84079fb56ddf53ea02e308986",
   "outputIndex" : 0,
-  "address" : "dgb1qrrx8v0u65t5tnx84tfdlqwja0sq62840d4h7gy",
+  "address" : "aur1qrrx8v0u65t5tnx84tfdlqwja0sq62840d4h7gy",
   "script" : "76a91447862fe165e6121af80d5dde1ecb478ed170565b88ac",
   "satoshis" : 50000
 };
 
 var transaction = new auroracoin.Transaction()
   .from(utxo)
-  .to('dgb1qz93rjfpk976zd2qal32d6zj7ctv9vywn9h7zdq', 15000)
+  .to('aur1qz93rjfpk976zd2qal32d6zj7ctv9vywn9h7zdq', 15000)
   .sign(privateKey);
 ```
 
@@ -61,7 +61,7 @@ var signature = message.sign(privateKey);
 ```javascript
 var Message = require('auroracoin-message');
 
-var address = 'dgb1qz93rjfpk976zd2qal32d6zj7ctv9vywn9h7zdq';
+var address = 'aur1qz93rjfpk976zd2qal32d6zj7ctv9vywn9h7zdq';
 var signature = 'IBOvIfsAs/da1e36W8kw1cQOPqPVXCW5zJgNQ5kI8m57FycZXdeFmeyoIqJSREzE4W7vfDmdmPk0HokuJPvgPPE=';
 
 var verified = new Message('This is an example of a signed message.').verify(address, signature);
@@ -73,7 +73,7 @@ var privateKey = new auroracoin.PrivateKey('L1uyy5qTuGrVXrmrsvHWHgVzW9kKdrp27wBC
 var utxo = {
   "txId" : "115e8f72f39fad874cfab0deed11a80f24f967a84079fb56ddf53ea02e308986",
   "outputIndex" : 0,
-  "address" : "dgb1qrrx8v0u65t5tnx84tfdlqwja0sq62840d4h7gy",
+  "address" : "aur1qrrx8v0u65t5tnx84tfdlqwja0sq62840d4h7gy",
   "script" : "76a91447862fe165e6121af80d5dde1ecb478ed170565b88ac",
   "satoshis" : 50000
 };
@@ -115,6 +115,6 @@ var utxo = {
 
 var transaction = new auroracoin.Transaction()
     .from(utxo, publicKeys, 2)
-    .to('dgb1qrrx8v0u65t5tnx84tfdlqwja0sq62840d4h7gy', 20000)
+    .to('aur1qrrx8v0u65t5tnx84tfdlqwja0sq62840d4h7gy', 20000)
     .sign(privateKeys);
 ```
