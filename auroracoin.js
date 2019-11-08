@@ -62005,7 +62005,7 @@ module.exports={
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/digicontributer/auroracoin-js.git"
+    "url": "https://github.com/LTEX-DEV/bitcore-lib-2019.git"
   },
   "browser": {
     "request": "browser-request"
@@ -62020,7 +62020,7 @@ module.exports={
     "sffc-encoder": "^0.1.9"
   },
   "devDependencies": {
-    "auroracoin-build": "auroracoin-core/auroracoin-build",
+    "auroracoin-build": "git://github.com/LTEX-DEV/auroracoin-build-2019.git",
     "brfs": "^1.2.0",
     "chai": "^1.10.0",
     "gulp": "^3.8.10",
